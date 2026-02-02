@@ -1,0 +1,15 @@
+<body style="background:black;margin:0">
+
+<iframe id="player" width="100%" height="100%" allowfullscreen></iframe>
+
+<script>
+const id = new URLSearchParams(location.search).get("id");
+
+fetch("https://SEU_BACKEND/api/stream/" + id)
+.then(r=>r.json())
+.then(data => {
+ document.getElementById("player").src = data.driveEmbed;
+});
+</script>
+
+</body>
